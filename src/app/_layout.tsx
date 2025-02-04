@@ -8,9 +8,24 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import "@/global.css";
 
 import { ActivityIndicator, View } from "react-native";
+import { useDrizzleStudio } from "expo-drizzle-studio-plugin";
+import { getDbInstance } from "@/src/shared/lib/drizzle";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+const DevTools = () => {
+  const { expoDb } = getDbInstance();
+
+  useEffect(() => {
+    console.log(
+      'Drizzle studio enabled! Trigger by "shift + m" in console and then select expo-drizzle-studio-plugin'
+    );
+  }, []);
+
+  useDrizzleStudio(expoDb);
+  return null;
+};
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -29,6 +44,7 @@ export default function RootLayout() {
 
   return (
     <Suspense fallback={<ActivityIndicator size="large" />}>
+      {__DEV__ && <DevTools />}
       <SafeAreaView className="flex-1">
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
