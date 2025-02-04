@@ -1,6 +1,6 @@
 import { Device } from "@/src/shared/modules/devices/devicesSchema";
 import { DevicesService } from "@/src/shared/modules/devices/devicesService";
-import { v4 as uuidv4 } from "uuid";
+import { random } from "@/src/shared/utils/random";
 
 export type DevicesController = ReturnType<typeof createDevicesController>;
 
@@ -38,7 +38,18 @@ export const createDevicesController = (devicesService: DevicesService) => {
     },
     insertRandomDevice: async () => {
       try {
-        const uuid = uuidv4();
+        const uuid = random.uuid();
+        const device = await devicesService.query.getDeviceWithRandomAttributes(
+          uuid
+        );
+
+        await devicesService.mutation.upsertDevice(device);
+      } catch (error) {
+        console.error("Error upserting generated device:", error);
+      }
+    },
+    setRandomAttributes: async (uuid: string) => {
+      try {
         const device = await devicesService.query.getDeviceWithRandomAttributes(
           uuid
         );

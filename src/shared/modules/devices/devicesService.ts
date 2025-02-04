@@ -43,7 +43,7 @@ export const createDevicesService = (db: DrizzleDb) => {
         updatedAt: DateTime.now().toFormat("yyyy-MM-dd HH:mm:ss"),
       };
 
-      console.log(`Device with uuid "${uuid}" fetched with random attributes`);
+      console.log(`Generated random attributes for device with uuid "${uuid}"`);
 
       return randomDevice;
     },
