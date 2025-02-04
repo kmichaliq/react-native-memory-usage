@@ -1,14 +1,14 @@
 import { View } from "react-native";
 
-import { ThemedText } from "@/src/shared/components/ThemedText";
+import { Typography } from "@/src/shared/components/Typography";
 
 export default function ExampleScreen() {
   return (
     <View className="flex-1 p-6 bg-slate-100 items-center">
       <View>
-        <ThemedText type="title">Example screen</ThemedText>
+        <Typography type="title">Example screen</Typography>
       </View>
-      <ThemedText>description</ThemedText>
+      <Typography>description</Typography>
     </View>
   );
 }

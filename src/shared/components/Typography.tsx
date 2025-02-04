@@ -1,14 +1,15 @@
+import { FC } from "react";
 import { Text, type TextProps, StyleSheet } from "react-native";
 
-export type ThemedTextProps = TextProps & {
+export type TypographyProps = TextProps & {
   type?: "default" | "title" | "defaultSemiBold" | "subtitle" | "link";
 };
 
-export function ThemedText({
+export const Typography: FC<TypographyProps> = ({
   style,
   type = "default",
   ...rest
-}: ThemedTextProps) {
+}) => {
   return (
     <Text
       style={[
@@ -22,7 +23,7 @@ export function ThemedText({
       {...rest}
     />
   );
-}
+};
 
 const styles = StyleSheet.create({
   default: {

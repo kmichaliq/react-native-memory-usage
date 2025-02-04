@@ -1,15 +1,22 @@
-import { Platform, View } from "react-native";
+import { View } from "react-native";
 
-import { ThemedText } from "@/src/shared/components/ThemedText";
+import { Typography } from "@/src/shared/components/Typography";
+import { Button } from "@/src/shared/components/Button";
 
 export default function HomeScreen() {
+  const hello = () => {
+    console.log("hello!!!");
+  };
+
   return (
     <View className="flex-1 p-6 bg-slate-100 items-center">
       <View>
-        <ThemedText type="title">Home screen</ThemedText>
+        <Typography type="title">SQLite + Drizzle ORM</Typography>
       </View>
-      <View>
-        <ThemedText>description</ThemedText>
+      <View className="flex-row mt-4 gap-2">
+        <Button label="Insert new device" onPress={hello} />
+        <Button label="test" onPress={hello} />
+        <Button label="test" onPress={hello} />
       </View>
     </View>
   );
