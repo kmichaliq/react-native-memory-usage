@@ -5,7 +5,7 @@ import { Suspense, useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import "../../global.css";
+import "@/global.css";
 
 import { ActivityIndicator, View } from "react-native";
 

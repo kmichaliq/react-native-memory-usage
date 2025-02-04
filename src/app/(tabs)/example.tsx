@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import { ThemedText } from "@/src/components/ThemedText";
+import { ThemedText } from "@/src/shared/components/ThemedText";
 
 export default function ExampleScreen() {
   return (
