@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
 
 export type ButtonProps = TouchableOpacityProps & {
   label?: string;
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?: "primary" | "secondary" | "negative" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   className?: string;
   textClassName?: string;
@@ -25,6 +25,7 @@ export const Button: FC<ButtonProps> = ({
   const variantStyles = {
     primary: "bg-blue-500 text-white",
     secondary: "bg-gray-500 text-white",
+    negative: "bg-red-500 text-white",
     outline: "border border-blue-500 bg-transparent",
     ghost: "bg-transparent",
   };
