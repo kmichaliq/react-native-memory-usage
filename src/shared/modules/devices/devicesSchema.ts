@@ -2,7 +2,7 @@ import { InferInsertModel, InferSelectModel, sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
 export const devices = sqliteTable("devices", {
-  id: text("id").primaryKey(),
+  uuid: text("uuid").primaryKey(),
   name: text("name").notNull(),
   description: text("description"),
 
